@@ -1,0 +1,185 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\Nasution> bitsadmin /transfer myDownloadJob /download /priority normal https://downloadsrv/10mb.zip c:\\10mb.zip
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Unable to add file - 0x80070005
+Access is denied.
+
+PS C:\Users\Nasution> Use the /create switch to create a download job named myDownloadJob.
+Use : The term 'Use' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that
+the path is correct and try again.
+At line:1 char:1
++ Use the /create switch to create a download job named myDownloadJob.
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (Use:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Nasution> bitsadmin /create myDownloadJob
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Created job {65234A5B-101B-411E-BD0B-B2C3A60BCFF5}.
+PS C:\Users\Nasution> bitsadmin /addfile myDownloadJob https://downloadsrv/10mb.zip c:\10mb.zip
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Unable to add file to job - 0x80070005
+Access is denied.
+
+PS C:\Users\Nasution> bitsadmin /resume myDownloadJob
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Unable to resume job - 0x80200003
+There are no files attached to this job. Attach files to the job, and then try again.
+
+PS C:\Users\Nasution> bitsadmin /info myDownloadJob /verbose
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+GUID: {65234A5B-101B-411E-BD0B-B2C3A60BCFF5} DISPLAY: 'myDownloadJob'
+TYPE: DOWNLOAD STATE: SUSPENDED OWNER: MR-ROOT\Nasution
+PRIORITY: NORMAL FILES: 0 / 0 BYTES: 0 / 0
+CREATION TIME: 11/29/2019 10:46:30 PM MODIFICATION TIME: 11/29/2019 10:46:30 PM
+COMPLETION TIME: UNKNOWN ACL FLAGS:
+NOTIFY INTERFACE: UNREGISTERED NOTIFICATION FLAGS: 3
+RETRY DELAY: 600 NO PROGRESS TIMEOUT: 1209600 ERROR COUNT: 0
+PROXY USAGE: PRECONFIG PROXY LIST: NULL PROXY BYPASS LIST: NULL
+DESCRIPTION:
+JOB FILES:
+NOTIFICATION COMMAND LINE: none
+owner MIC integrity level: MEDIUM
+owner elevated ?           false
+
+Peercaching flags
+         Enable download from peers      :false
+         Enable serving to peers         :false
+
+CUSTOM HEADERS: NULL
+PS C:\Users\Nasution> bitsadmin /complete myDownloadJob
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Job completed.
+PS C:\Users\Nasution> bitsadmin /list
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Listed 0 job(s).
+PS C:\Users\Nasution> bitsadmin /reset
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+0 out of 0 jobs canceled.
+PS C:\Users\Nasution> bitsadmin /getaclflags myDownloadJob
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Unable to find job named "myDownloadJob".
+PS C:\Users\Nasution> bitsadmin /GetBytesTotal myDownloadJob
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Unable to find job named "myDownloadJob".
+PS C:\Users\Nasution> bitsadmin /GetBytesTransferred myDownloadJob
+
+BITSADMIN version 3.0
+BITS administration utility.
+(C) Copyright Microsoft Corp.
+
+Unable to find job named "myDownloadJob".
+PS C:\Users\Nasution> bootcfg /addsw /mm 64 /id 2
+ERROR: You are not authorized to modify the contents of boot.ini file.
+PS C:\Users\Nasution> bootcfg /addsw /so /id 3
+ERROR: You are not authorized to modify the contents of boot.ini file.
+PS C:\Users\Nasution> bootcfg /addsw /so /ng /s srvmain /u hiropln /id 2
+ERROR: The network name cannot be found.
+PS C:\Users\Nasution>
+PS C:\Users\Nasution> fsutil 8dot3name query Volume{928842df-5a01-11de-a85c-806e6f6e6963}
+Usage : fsutil 8dot3name query [<Volume Path>]
+
+When no volume is specified the global 8dot3name state is displayed.
+When volume is specified the volumes 8dot3name state is displayed.
+
+Sample command:
+  "fsutil 8dot3name query"
+  "fsutil 8dot3name query C:"
+PS C:\Users\Nasution> fsutil 8dot3name strip /l mylogfile.log /s d:\MyData
+
+Could not open the target directory.
+Error:  Object Name not found.
+
+PS C:\Users\Nasution> fsutil file findbysid scottb c:\users
+Error:  No mapping between account names and security IDs was done.
+PS C:\Users\Nasution> fsutil file queryallocranges offset=1024 length=64 c:\temp\sample.txt  
+Error:  The system cannot find the path specified.
+PS C:\Users\Nasution> ftype
+ftype : The term 'ftype' is not recognized as the name of a cmdlet, function, script file,
+or operable program. Check the spelling of the name, or if a path was included, verify that
+the path is correct and try again.
+At line:1 char:1
++ ftype
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (ftype:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Nasution> ftype txtfile
+ftype : The term 'ftype' is not recognized as the name of a cmdlet, function, script file,
+or operable program. Check the spelling of the name, or if a path was included, verify that
+the path is correct and try again.
+At line:1 char:1
++ ftype txtfile
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (ftype:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Nasution> getmac /fo table /nh /v
+
+Ethernet 2      TAP-Windows Ada 00-FF-0F-A4-11-66   Media disconnected                       
+Wi-Fi           Qualcomm Athero 98-22-EF-B7-C4-45   N/A                                      
+Ethernet        Realtek PCIe Gb D8-C4-97-40-A5-EF   Media disconnected                       
+Bluetooth Netwo Bluetooth Devic 98-22-EF-B7-C4-46   Media disconnected                       
+Network Bridge  Microsoft Netwo 00-FF-0F-A4-11-66   \Device\Tcpip_{DB874C5B-DF43-4E78-9EE7-6D7C69C3FD2E}
+Ethernet 4      ExpressVPN Tap  00-FF-3F-88-D5-FB   Media disconnected                       
+PS C:\Users\Nasution> getmac /s srvmain
+ERROR: The RPC server is unavailable.
+
+PS C:\Users\Nasution> getmac /s srvmain /u maindom\hiropln
+ERROR: The RPC server is unavailable.
+
+PS C:\Users\Nasution> getmac /s srvmain /u maindom\hiropln /p p@ssW23
+ERROR: The RPC server is unavailable.
+
+PS C:\Users\Nasution> getmac /s srvmain /u maindom\hiropln /p p@ssW23 /fo list /v
+ERROR: The RPC server is unavailable.
+
+PS C:\Users\Nasution> getmac /s srvmain /u maindom\hiropln /p p@ssW23 /fo table /nh
+ERROR: The RPC server is unavailable.
+
+PS C:\Users\Nasution>
