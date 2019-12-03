@@ -3,6 +3,7 @@
 
 #1
 * Teknologi Informasi
+
 Teknologi informasi (TI) adalah penggunaan komputer untuk menyimpan, mengambil, mengirim, dan memanipulasi data atau informasi.
 
 Perangkat penyimpanan digital akses acak pertama adalah tabung Williams, berdasarkan pada tabung sinar katoda standar, tetapi informasi yang tersimpan di dalamnya dan memori jalur tunda mudah berubah sehingga harus terus disegarkan, dan dengan demikian hilang begitu kekuatan telah dihapus.
